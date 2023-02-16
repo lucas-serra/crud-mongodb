@@ -31,4 +31,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return this.usuarioRepository.save(usuario);
 	}
 
+	@Override
+	public String excluir(Usuario usuario) {
+		try {
+			this.usuarioRepository.delete(usuario);
+			return "OK";
+		} catch (Exception e) {
+			return "Usuário não encontrado.";
+		}
+	}
+
 }
