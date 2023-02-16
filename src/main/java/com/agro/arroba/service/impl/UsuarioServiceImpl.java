@@ -36,7 +36,17 @@ public class UsuarioServiceImpl implements UsuarioService {
 		try {
 			this.usuarioRepository.delete(usuario);
 			return "OK";
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
+			return "Usuário não encontrado.";
+		}
+	}
+
+	@Override
+	public String excluirPorId(String codigo) {
+		try {
+			this.usuarioRepository.deleteById(codigo);
+			return "OK";
+		} catch (IllegalArgumentException e) {
 			return "Usuário não encontrado.";
 		}
 	}
