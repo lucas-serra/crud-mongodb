@@ -13,4 +13,6 @@ public interface UsuarioService {
 	public Usuario criar(Usuario usuario);
 	
 	public String excluir(Usuario usuario);
+	
+	public String excluirPorId(String codigo);
 }

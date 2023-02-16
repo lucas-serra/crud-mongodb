@@ -20,24 +20,29 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioService usuarioService;
-	
+
 	@GetMapping
 	public List<Usuario> obterTodos() {
 		return this.usuarioService.obterTodos();
 	}
-	
+
 	@GetMapping("/{codigo}")
 	public Usuario obterPorCodigo(@PathVariable String codigo) {
 		return this.usuarioService.obterPorCodigo(codigo);
 	}
-	
+
 	@PostMapping
-	public Usuario criar (@RequestBody Usuario usuario) {
+	public Usuario criar(@RequestBody Usuario usuario) {
 		return this.usuarioService.criar(usuario);
 	}
-	
+
 	@DeleteMapping
-	public String excluir (@RequestBody Usuario usuario) {
+	public String excluir(@RequestBody Usuario usuario) {
 		return this.usuarioService.excluir(usuario);
+	}
+
+	@DeleteMapping("/{codigo}")
+	public String excluirPorId(@RequestBody String codigo) {
+		return this.usuarioService.excluirPorId(codigo);
 	}
 }
